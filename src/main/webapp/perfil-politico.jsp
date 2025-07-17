@@ -10,31 +10,44 @@ Politico politico = (Politico) request.getAttribute("politico");
 <head>
 <meta charset="UTF-8">
 <title>Perfil do Político</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/static/style.css">
 </head>
 <body>
 
 	<div class="navbar">
 		<div class="logo">
 			<a href="${pageContext.request.contextPath}/home"
-				style="color: white; text-decoration: none;"> Ficha Limpa </a>
+				style="color: white; text-decoration: none;">Mini Ficha Limpa </a>
 		</div>
 
 		<div class="menu">
-			<a href="${pageContext.request.contextPath}/politico">Políticos</a>
+			<a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar
+				Político</a> <a href="${pageContext.request.contextPath}/produto">Produtos</a>
 		</div>
 	</div>
 
 	<div class="container">
 		<h1>Detalhes do Político</h1>
-		<p><strong>ID:</strong> <%= politico.getId() %></p>
-		<p><strong>Nome:</strong> <%= politico.getNome() %></p>
-		<p><strong>Número Eleitoral:</strong> <%= politico.getNumeroEleitoral() %></p>
-		<p><strong>Nome Eleitoral:</strong> <%= politico.getNomeEleitoral() %></p>
-		<p><strong>ID do Partido:</strong> <%= politico.getPartido() %></p>
 		<p>
-			<a href="<%= request.getContextPath() + "/politico" %>">Voltar para lista</a>
+			<strong>ID:</strong>
+			<%=politico.getId()%></p>
+		<p>
+			<strong>Nome:</strong>
+			<%=politico.getNome()%></p>
+		<p>
+			<strong>Número Eleitoral:</strong>
+			<%=politico.getNumeroEleitoral()%></p>
+		<p>
+			<strong>Nome Eleitoral:</strong>
+			<%=politico.getNomeEleitoral()%></p>
+		<p>
+			<strong>ID do Partido:</strong>
+			<%=politico.getPartido()%></p>
+		<p style="margin: 20px;">
+			<button onclick="history.back()">Voltar</button>
 		</p>
+
 	</div>
 
 </body>

@@ -16,7 +16,7 @@
 	<div class="navbar">
 		<div class="logo">
 			<a href="${pageContext.request.contextPath}/home"
-				style="color: white; text-decoration: none;"> Ficha Limpa </a>
+				style="color: white; text-decoration: none;"> Mini Ficha Limpa </a>
 		</div>
 
 		<div class="form-busca">
@@ -29,12 +29,14 @@
 		</div>
 
 		<div class="menu">
-			<a href="${pageContext.request.contextPath}/produto">Produtos</a>
+			<a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar
+				Político</a> <a href="${pageContext.request.contextPath}/produto">Produtos</a>
 		</div>
 	</div>
 
 	<div class="container">
 		<h1>Lista de Políticos</h1>
+
 		<table border="1" cellpadding="8" cellspacing="0">
 			<thead>
 				<tr>
@@ -74,6 +76,10 @@
 			</tbody>
 		</table>
 	</div>
+
+	<p style="margin: 20px;">
+		<button onclick="history.back()">Voltar</button>
+	</p>
 
 </body>
 </html>
