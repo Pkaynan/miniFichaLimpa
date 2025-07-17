@@ -1,12 +1,12 @@
 package model;
 
-public class Produtos {
+public class Produto {
 
     private Long id;
     private String nome;
     private double preco;
     
-	public Produtos() {
+	public Produto() {
 		
 	}
 	

@@ -22,8 +22,7 @@ Politico politico = (Politico) request.getAttribute("politico");
 		</div>
 
 		<div class="menu">
-			<a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar
-				Político</a> <a href="${pageContext.request.contextPath}/produto">Produtos</a>
+			<a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar Político</a> 
 		</div>
 	</div>
 
@@ -45,7 +44,8 @@ Politico politico = (Politico) request.getAttribute("politico");
 			<strong>ID do Partido:</strong>
 			<%=politico.getPartido()%></p>
 		<p style="margin: 20px;">
-			<button onclick="history.back()">Voltar</button>
+			<button
+				onclick="window.location.href='${pageContext.request.contextPath}/politico'">Voltar</button>
 		</p>
 
 	</div>

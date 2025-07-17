@@ -13,10 +13,6 @@
 			<a href="${pageContext.request.contextPath}/home"
 				style="color: white; text-decoration: none;">Ficha Limpa</a>
 		</div>
-		<div class="menu">
-			<a href="${pageContext.request.contextPath}/politico">Políticos</a> <a
-				href="${pageContext.request.contextPath}/produto">Produtos</a>
-		</div>
 	</div>
 
 	<div class="container">

@@ -1,4 +1,4 @@
-package web;
+package politico;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import percistense.PoliticoDAO;
 
 
 @WebServlet("/perfilpolitico")
-public class PoliticoPerfil extends HttpServlet {
+public class PoliticoPerfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

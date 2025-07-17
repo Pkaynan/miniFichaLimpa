@@ -14,7 +14,6 @@
         </div>
         <div class="menu">
             <a href="${pageContext.request.contextPath}/politico">Políticos</a>
-            <a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar Político</a>
             <a href="${pageContext.request.contextPath}/produto">Produtos</a>
         </div>
     </div>
