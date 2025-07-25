@@ -1,3 +1,5 @@
+<%@page import="carrinho.CarrinhoViewHelper"%>
+<%@page import="model.Carrinho"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.Produto"%>
@@ -19,14 +21,18 @@
 		<div class="form-busca">
 			<form action="${pageContext.request.contextPath}/produto"
 				method="get">
-				<input type="text" name="query" placeholder="Buscar produto..."
-					value="${param.query}" />
+				<input type="text" name="query" placeholder="Buscar produto..." value="${param.query}" />
 				<button type="submit">🔍</button>
 			</form>
 		</div>
 
 		<div class="menu">
-			<a href="${pageContext.request.contextPath}/cadastrarproduto">Cadastrar Produto</a> 
+			<a href="${pageContext.request.contextPath}/carrinho">
+        	<%
+				Carrinho carrinho = CarrinhoViewHelper.recuperarCarrinho(request);
+			%>
+        	Carrinho <%=carrinho.getNumeroItens()%></a>
+			<a href="${pageContext.request.contextPath}/cadastrarproduto">Cadastrar Produto</a>
 			<a href="${pageContext.request.contextPath}/politico">Políticos</a>
 		</div>
 	</div>
@@ -49,10 +55,11 @@
 				%>
 				<tr>
 					<td><%=p.getId()%></td>
-					<td><a
-						href="<%=request.getContextPath() + "/perfilproduto?id=" + p.getId()%>">
+					<td>
+						<a href="<%=request.getContextPath() + "/perfilproduto?id=" + p.getId()%>">
 							<%=p.getNome()%>
-					</a></td>
+						</a>
+					</td>
 					<td>R$ <%=String.format("%.2f", p.getPreco())%></td>
 				</tr>
 				<%
@@ -68,9 +75,10 @@
 			</tbody>
 		</table>
 	</div>
-	
+
 	<p style="margin: 20px;">
-		<button onclick="history.back()">Voltar</button>
+		<button
+			onclick="window.location.href='${pageContext.request.contextPath}/home'">Voltar</button>
 	</p>
 
 </body>

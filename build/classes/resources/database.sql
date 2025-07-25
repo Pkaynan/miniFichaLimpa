@@ -1,4 +1,4 @@
-DROP DATABASE IF exists mini;
+DROP DATABASE IF EXISTS mini;
 CREATE DATABASE mini;
 USE mini;
 
@@ -20,7 +20,9 @@ CREATE TABLE politico (
 CREATE TABLE produto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL
+    preco DECIMAL(10, 2) NOT NULL,
+    politico_id INT, 
+    FOREIGN KEY (politico_id) REFERENCES politico(id)
 );
 
 -- Inserindo partidos
@@ -35,9 +37,9 @@ INSERT INTO politico (nome, numero_eleitoral, nome_eleitoral, partido_id) VALUES
 ('João Costa', 2020, 'João do Povo', 2),
 ('Ana Beatriz', 3030, 'Ana da Educação', 3);
 
--- Inserindo produtos
-INSERT INTO produto (nome, preco) VALUES
-('Camiseta Ficha Limpa', 39.90),
-('Caneca do João do Povo', 25.00),
-('Botton Ana da Educação', 9.50),
-('Adesivo Maria da Saúde', 4.99);
+-- Inserindo produtos com associação a políticos
+INSERT INTO produto (nome, preco, politico_id) VALUES
+('Camiseta Ficha Limpa', 39.90, 1),
+('Caneca do João do Povo', 25.00, 2),
+('Botton Ana da Educação', 9.50, 3),
+('Adesivo Maria da Saúde', 4.99, 1);

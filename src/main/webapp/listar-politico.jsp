@@ -1,3 +1,5 @@
+<%@page import="carrinho.CarrinhoViewHelper"%>
+<%@page import="model.Carrinho"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
@@ -29,8 +31,13 @@
 		</div>
 
 		<div class="menu">
-			<a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar
-				Político</a> <a href="${pageContext.request.contextPath}/produto">Produtos</a>
+			<a href="${pageContext.request.contextPath}/carrinho">
+        	<%
+				Carrinho carrinho = CarrinhoViewHelper.recuperarCarrinho(request);
+			%>
+        	Carrinho <%=carrinho.getNumeroItens()%></a>
+			<a href="${pageContext.request.contextPath}/cadastropolitico">Cadastrar Político</a> 
+			<a href="${pageContext.request.contextPath}/produto">Produtos</a>
 		</div>
 	</div>
 
@@ -78,7 +85,8 @@
 	</div>
 
 	<p style="margin: 20px;">
-		<button onclick="history.back()">Voltar</button>
+		<button
+			onclick="window.location.href='${pageContext.request.contextPath}/home'">Voltar</button>
 	</p>
 
 </body>

@@ -26,7 +26,6 @@ public class CadastrarProdutoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String nome = request.getParameter("nome");
-		String descricao = request.getParameter("descricao");
 		String precoStr = request.getParameter("preco");
 
 		try {

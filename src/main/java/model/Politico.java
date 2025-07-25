@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Politico {
 
 	private Long id;
@@ -7,9 +10,15 @@ public class Politico {
 	private int numeroEleitoral;
 	private String nomeEleitoral;
 	private Long partido;
-
+	
+	private List<Produto> produtosList = new ArrayList<>();
+	
 	public Politico() {
 
+	}
+	
+	public void adicionarProduto(Produto produto) {
+		produtosList.add(produto);
 	}
 
 	public Long getId() {

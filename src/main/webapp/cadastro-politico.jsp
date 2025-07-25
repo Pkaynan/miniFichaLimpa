@@ -33,7 +33,8 @@
 	</div>
 
 	<p style="margin: 20px;">
-		<button onclick="history.back()">Voltar</button>
+		<button
+			onclick="window.location.href='${pageContext.request.contextPath}/politico'">Voltar</button>
 	</p>
 
 </body>

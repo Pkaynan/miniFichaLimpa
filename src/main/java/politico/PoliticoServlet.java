@@ -1,6 +1,7 @@
 package politico;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,7 +24,7 @@ public class PoliticoServlet extends HttpServlet {
 	    PoliticoDAO dao = new PoliticoDAO();
 	    String query = request.getParameter("query");
 
-	    List<Politico> politicos;
+	    List<Politico> politicos = new ArrayList<>();
 
 	    if (query != null && !query.trim().isEmpty()) {
 	        politicos = dao.findByNomeContaining(query.trim());

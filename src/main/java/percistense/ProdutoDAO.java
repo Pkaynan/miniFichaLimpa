@@ -11,6 +11,7 @@ import java.util.List;
 import model.Produto;
 
 public class ProdutoDAO {
+
 	public List<Produto> findByNomeContaining(String nome) {
 		List<Produto> lista = new ArrayList<>();
 		String sql = "SELECT * FROM produto WHERE nome LIKE ?";
@@ -56,6 +57,25 @@ public class ProdutoDAO {
 			e.printStackTrace();
 		}
 		return produto;
+	}
+
+	public List<Produto> findByPolitico(Long id) {
+		List<Produto> listaProdutoComPolitico = new ArrayList<>();
+		String sql = "SELECT * FROM produto WHERE politico_id = ?";
+
+		try (Connection connection = ConnectionProvider.getConnection();
+				PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setLong(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Produto produto = produto = mapRow(rs);
+				listaProdutoComPolitico.add(produto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listaProdutoComPolitico;
 	}
 
 	public void save(Produto produto) {

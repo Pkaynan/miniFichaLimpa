@@ -1,6 +1,8 @@
 package politico;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Politico;
+import model.Produto;
 import percistense.PoliticoDAO;
+import percistense.ProdutoDAO;
 
 
 @WebServlet("/perfilpolitico")
@@ -19,14 +23,21 @@ public class PoliticoPerfilServlet extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
+		
+			List<Produto> produtoList = new ArrayList<>();
 	        
 	        String idStr = request.getParameter("id");
 	        if (idStr != null) {
 	            try {
-	                Long id = Long.parseLong(idStr);
-	                PoliticoDAO dao = new PoliticoDAO();
-	                Politico politico = dao.findById(id); 
+	                Long politicoiId = Long.parseLong(idStr);
+	                PoliticoDAO politicoDao = new PoliticoDAO();
+	                Politico politico = politicoDao.findById(politicoiId); 
+	                
+	                ProdutoDAO produtoDao = new ProdutoDAO();
+	                produtoList = produtoDao.findByPolitico(politicoiId);
+	                
 	                request.setAttribute("politico", politico);
+	                request.setAttribute("produto", produtoList);
 	                RequestDispatcher rd = request.getRequestDispatcher("perfil-politico.jsp");
 	                rd.forward(request, response);
 	            } catch (NumberFormatException e) {

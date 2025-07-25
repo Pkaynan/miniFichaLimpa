@@ -1,6 +1,7 @@
 package produto;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -22,7 +23,7 @@ public class ProdutoServlet extends HttpServlet {
             throws ServletException, IOException {
         ProdutoDAO dao = new ProdutoDAO();
         String query = request.getParameter("query");
-        List<Produto> produtos;
+        List<Produto> produtos = new ArrayList<>();
 
         if (query != null && !query.trim().isEmpty()) {
             produtos = dao.findByNomeContaining(query.trim());
